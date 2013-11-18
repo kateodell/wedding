@@ -1,4 +1,9 @@
 Wedding::Application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
+  root "public_site#home"
+
   get "public_site/home"
   get "public_site/rsvp"
   get "public_site/contact"
