@@ -11,6 +11,6 @@ class PublicSiteController < ApplicationController
   def about_us
   end
 
-  def wedding_info
+  def details
   end
 end
