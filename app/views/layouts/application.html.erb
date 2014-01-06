@@ -8,8 +8,11 @@
 
     <title>Kate and Arjan</title>
 
+<%= stylesheet_link_tag "application", media: "all",
+                                           "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <!-- Bootstrap core CSS -->
-    <link href="/assets/application.css" rel="stylesheet">
+    <!-- <link href="/assets/application.css" rel="stylesheet"> -->
 
   </head>
 
@@ -48,7 +51,7 @@
 
     <!-- JavaScript -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="../assets/bootstrap.js"></script>
+    <script src="/assets/bootstrap.js"></script>
     <script>
     // Activates the Carousel
     $('.carousel').carousel({
