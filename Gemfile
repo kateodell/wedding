@@ -7,8 +7,6 @@ gem 'rails', '4.0.1'
 
 gem 'pg', '0.15.1'
 
-gem 'sqlite3'
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -35,6 +33,10 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'mandrill-api'
+
+group :test do
+    gem 'sqlite3'
+end
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
