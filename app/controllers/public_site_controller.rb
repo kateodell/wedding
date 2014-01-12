@@ -5,9 +5,6 @@ class PublicSiteController < ApplicationController
   def rsvp
   end
 
-  def contact
-  end
-
   def about_us
   end
 

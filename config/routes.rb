@@ -4,11 +4,10 @@ Wedding::Application.routes.draw do
 
   root "public_site#home"
 
-  get "public_site/home"
-  get "public_site/rsvp"
-  get "public_site/contact"
-  get "public_site/about_us"
-  get "public_site/details"
+  get 'home' => "public_site#home"
+  get 'rsvp' => "public_site#rsvp"
+  get 'about_us' => "public_site#about_us"
+  get 'details' => "public_site#details"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
