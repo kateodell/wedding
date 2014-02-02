@@ -4,6 +4,7 @@ ActiveAdmin.register Guest do
         column :first_name
         column :last_name
         column :rsvp_status
+        column :token
         default_actions
       end
 
