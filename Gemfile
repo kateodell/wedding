@@ -36,6 +36,12 @@ gem 'mandrill-api'
 
 group :test do
     gem 'sqlite3'
+    gem 'rspec-rails'
+    gem 'capybara'
+end
+
+group :development do
+    gem 'rspec-rails'
 end
 
 group :doc do
