@@ -33,14 +33,14 @@ describe "Public site pages" do
         context 'when the user has a token that is not valid' do
             it "should have the right content" do
                 visit '/rsvp?token=not_a_token'
-                expect(page).to have_content('Check your email')
+                expect(page).to have_content('click on the RSVP link from the email')
             end
         end
 
         context "when the user does not have a token" do
             it 'should show the message to have them check their email' do
                 visit '/rsvp'
-                expect(page).to have_content('Check your email')
+                expect(page).to have_content('click on the RSVP link from the email')
             end
             
         end

@@ -93,6 +93,28 @@ footer p {
   padding: 50px 0;
 }
 
+.btn-yes.active {
+  background-color: #5cb85c 
+}
+
+.btn-maybe.active {
+  background-color: #f0ad4e 
+}
+
+.btn-no.active {
+  background-color: #d9534f 
+}
+
+.pad-btm-30 {
+  padding-bottom:30px
+}
+.pad-btm-50 {
+  padding-bottom:50px
+}
+.pad-top-20 {
+  padding-top:20px
+}
+
 @media screen and (min-width: 768px) {
 
 .brand {
