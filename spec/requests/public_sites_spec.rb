@@ -16,15 +16,30 @@ describe "Public site pages" do
     end
 
     describe "RSVP page" do
-        context 'when the user has a token' do
+        before do
+            guest = Guest.new(first_name: "Fred", last_name: "Flinstone", email: "user@example.com")
+            guest.save   
+            guest.token = "abc123"
+            guest.save
+        end
+
+        context 'when the user has a valid token' do
             it "should have the right content" do
-              visit '/rsvp'
-              expect(page).to have_content('This is the place where people')
+                visit '/rsvp?token=abc123'
+                expect(page).to have_content('Fred')
             end
         end
 
-        context "when the user does not have a valid token" do
-            it 'should show the message to have them check their email' do |variable|
+        context 'when the user has a token that is not valid' do
+            it "should have the right content" do
+                visit '/rsvp?token=not_a_token'
+                expect(page).to have_content('Check your email')
+            end
+        end
+
+        context "when the user does not have a token" do
+            it 'should show the message to have them check their email' do
+                visit '/rsvp'
                 expect(page).to have_content('Check your email')
             end
             

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe GuestsController do
 
     describe 'show' do
-        context 'when a valid email is requested' do
+        context 'when a valid token is requested' do
             it 'returns the rsvp info for the given email' do
                 
             end
