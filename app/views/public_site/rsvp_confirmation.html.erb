@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="box col-sm-12 text-center">
+        <div class="box"> 
+            <h2><strong>Thanks for Responding!</strong></h2>
+            <p>
+                Thanks for responding! We've received the below RSVP information:
+            </p>
+            <div class="row text-center border-bottom">
+                <div class="col-sm-2 col-sm-offset-2">
+                    <h4>Name</h4>
+                </div>
+                <div class="col-sm-3">
+                    <h4>Friday Night Dinner</h4>
+                </div>
+                <div class="col-sm-3">
+                    <h4>Wedding &amp; Reception</h4>
+                </div>
+            </div>
+            <% @rsvp_info.each do |guest| %>
+                <div class="row text-center">
+                    <div class="col-sm-2 col-sm-offset-2">
+                        <p><%= guest.first_name %></p>
+                    </div>
+                    <div class="col-sm-3">
+                        <p><%= guest.rehearsal_status_text %></p>
+                    </div>
+                    <div class="col-sm-3">
+                        <p><%= guest.rsvp_status_text %></p>
+                    </div>
+                </div>
+            <% end %>
+            <p>
+                If you need to update your response for either the Friday dinner or Saturday ceremony/reception, you can either come back here or just email us at email at <a href="mailto:kate.and.arjan@gmail.com">kate.and.arjan@gmail.com</a> any time!
+            </p>
+            <p>
+                If you have any trouble or further questions, please just shoot us an email at <a href="mailto:kate.and.arjan@gmail.com">kate.and.arjan@gmail.com</a> and we'll get it sorted out :)
+            </p>
+        </div>
+    </div>
+</div>

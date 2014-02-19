@@ -16,38 +16,45 @@
                     Saturday, August 9, 2014
                 </div>
             </div>
-            <form role="form">
-                <div class="row pad-btm-30">
-                    <div class="col-sm-2">
-                        <p><%= @guest.first_name %></p>
-                    </div>
-                    <div class="col-sm-5">
-                        <div class="btn-group" data-toggle="buttons">
-                          <label class="btn btn-default btn-yes">
-                            <input type="radio" name="friday" id="yes"> Attending
-                          </label>
-                          <label class="btn btn-default btn-maybe">
-                            <input type="radio" name="friday" id="maybe"> Not Sure Yet
-                          </label>
-                          <label class="btn btn-default btn-no">
-                            <input type="radio" name="friday" id="no"> Not Attending
-                          </label>
+            <form role="form" action="/rsvp" method="post">
+                <input type="hidden" name="rsvping_guest" value="<%= @guest.id %>">
+                <% @rsvp_info.each do |guest| %>
+                    <div class="row pad-btm-30">
+                        <div class="col-sm-2">
+                            <p><%= guest.first_name %> <%= guest.last_name %></p>
                         </div>
-                    </div>
-                    <div class="col-sm-5">
-                        <div class="btn-group" data-toggle="buttons">
-                          <label class="btn btn-default btn-yes">
-                            <input type="radio" name="friday" id="yes"> Attending
-                          </label>
-                          <label class="btn btn-default btn-maybe">
-                            <input type="radio" name="friday" id="maybe"> Not Sure Yet
-                          </label>
-                          <label class="btn btn-default btn-no">
-                            <input type="radio" name="friday" id="no"> Not Attending
-                          </label>
+                        <div class="col-sm-5">
+                            <div id="friday_<%= guest.id %>" class="btn-group" data-toggle="buttons">
+                              <label value="yes" class="btn btn-default btn-yes">
+                                <input type="radio">Attending</label>
+                              <label value="maybe" class="btn btn-default btn-maybe">
+                                <input type="radio">Not Sure Yet</label>
+                              <label value="no" class="btn btn-default btn-no">
+                                <input type="radio">Not Attending</label>
+                            </div>
+                            <input type="hidden" name= "friday_<%= guest.id %>" id="friday_rsvp_<%= guest.id %>"/>
                         </div>
-                    </div> 
-                </div>
+                        <div class="col-sm-5">
+                            <div id="saturday_<%= guest.id %>" class="btn-group" data-toggle="buttons">
+                              <label value="yes" class="btn btn-default btn-yes">
+                                <input type="radio">Attending</label>
+                              <label value="maybe" class="btn btn-default btn-maybe">
+                                <input type="radio">Not Sure Yet</label>
+                              <label value="no" class="btn btn-default btn-no">
+                                <input type="radio">Not Attending</label>
+                            </div>
+                            <input type="hidden" name= "saturday_<%= guest.id %>" id="saturday_rsvp_<%= guest.id %>"/>
+                        </div> 
+                    </div>
+                    <script type="text/javascript">
+                        $("#friday_<%= guest.id %> .btn").click(function () {
+                            $("#friday_rsvp_<%= guest.id %>").val($(this).attr('value'));
+                        });
+                        $("#saturday_<%= guest.id %> .btn").click(function () {
+                            $("#saturday_rsvp_<%= guest.id %>").val($(this).attr('value'));
+                        });
+                    </script>
+                <% end %>
                 <hr>
                 <div class="row pad-top-20">
                     <div class="col-sm-5 form-group text-right">

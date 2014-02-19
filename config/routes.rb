@@ -8,6 +8,10 @@ Wedding::Application.routes.draw do
   get 'rsvp' => "public_site#rsvp"
   get 'about_us' => "public_site#about_us"
   get 'details' => "public_site#details"
+
+  post 'rsvp' => "guests#update_rsvp"
+  get 'rsvp_confirmation' => 'guests#rsvp_confirmation'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
