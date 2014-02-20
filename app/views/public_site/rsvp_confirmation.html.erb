@@ -19,7 +19,7 @@
             <% @rsvp_info.each do |guest| %>
                 <div class="row text-center">
                     <div class="col-sm-2 col-sm-offset-2">
-                        <p><%= guest.first_name %></p>
+                        <p><%= guest.first_name %> <%= guest.last_name %></p>
                     </div>
                     <div class="col-sm-3">
                         <p><%= guest.rehearsal_status_text %></p>

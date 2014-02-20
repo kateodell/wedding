@@ -38,11 +38,23 @@ class Guest < ActiveRecord::Base
         self.save!
     end
 
+    def rehearsal_status_key
+        return '' if self.rehearsal_status.nil?
+        RSVP_RESPONSE.keys[self.rehearsal_status]
+    end
+
+    def rsvp_status_key
+        return '' if self.rsvp_status.nil?
+        RSVP_RESPONSE.keys[self.rsvp_status]
+    end
+
     def rehearsal_status_text
+        return 'Not Yet Responded' if self.rehearsal_status.nil?
         RSVP_RESPONSE_TEXT[self.rehearsal_status]
     end
 
     def rsvp_status_text
+        return 'Not Yet Responded' if self.rsvp_status.nil?
         RSVP_RESPONSE_TEXT[self.rsvp_status]
     end
 
