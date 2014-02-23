@@ -10,6 +10,7 @@ class GuestsController < ApplicationController
             guest.update_rsvp(params["friday_#{guest.id}"], params["saturday_#{guest.id}"], params['dietary_notes'], params['other_notes'])
         end
         @rsvp_info = @rsvping_guest.rsvp_info
+        InvitationMailer.send_confirmation_email(@rsvping_guest)
         render template: 'public_site/rsvp_confirmation'
     end
 

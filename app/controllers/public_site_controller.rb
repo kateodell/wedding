@@ -3,7 +3,9 @@ class PublicSiteController < ApplicationController
   end
 
   def rsvp
+    params[:token] ||= session[:token]
     if params[:token] && Guest.find_by_token(params[:token])
+        session[:token] = params[:token]
         @guest = Guest.find_by_token(params[:token])
         @rsvp_info = @guest.rsvp_info
     else

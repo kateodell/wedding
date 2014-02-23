@@ -39,8 +39,7 @@ Wedding::Application.configure do
 
 
   # added as per activeadmin instructions
-  # TODO: update before deploying to heroku
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => 'kajanwedding.herokuapp.com' }
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
