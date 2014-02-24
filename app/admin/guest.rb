@@ -3,8 +3,8 @@ ActiveAdmin.register Guest do
         column :email
         column :first_name
         column :last_name
-        column :rehearsal_status
-        column :rsvp_status
+        column :friday_rsvp
+        column :saturday_rsvp
         column :group_leader
         column :token
         default_actions

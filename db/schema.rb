@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140214061342) do
+ActiveRecord::Schema.define(version: 20140224160600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,8 +57,6 @@ ActiveRecord::Schema.define(version: 20140214061342) do
     t.integer  "contact_preference"
     t.string   "mailing_address"
     t.integer  "group_leader"
-    t.integer  "rsvp_status"
-    t.integer  "rehearsal_status"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "city"
@@ -67,6 +65,8 @@ ActiveRecord::Schema.define(version: 20140214061342) do
     t.string   "token"
     t.text     "dietary_notes"
     t.text     "other_notes"
+    t.string   "friday_rsvp"
+    t.string   "saturday_rsvp"
   end
 
   add_index "guests", ["email"], name: "index_guests_on_email", using: :btree

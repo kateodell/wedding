@@ -24,11 +24,11 @@ class InvitationMailer
   private
 
   def self.build_final_message(guest)
-    if guest.rsvp_status == Guest::RSVP_RESPONSE['yes']
+    if guest.saturday_rsvp == Guest::RSVP_YES
         "We're looking forward to celebrating with you!"
-    elsif guest.rsvp_status == Guest::RSVP_RESPONSE['maybe']
+    elsif guest.saturday_rsvp == Guest::RSVP_MAYBE
         "We hope you'll be able to join us! Just be sure to let us know your final answer by June 15."
-    elsif guest.rsvp_status == Guest::RSVP_RESPONSE['no']
+    elsif guest.saturday_rsvp == Guest::RSVP_NO
         "We'll miss having you there!"
     end
   end
@@ -37,8 +37,8 @@ class InvitationMailer
     response = '<table style="text-align:center"><thead><tr><th></th><th style="width:125px">Friday Night Dinner</th><th style="width:120px">Wedding and Reception</th></tr></thead>'
     guest.rsvp_info.each do |group_member|
         response += "<tr><td style='padding-right:10px'>#{group_member.first_name}</td>"
-        response += "<td>#{group_member.rehearsal_status_text}</td>"
-        response += "<td>#{group_member.rsvp_status_text}</td></tr>"
+        response += "<td>#{group_member.friday_rsvp_text}</td>"
+        response += "<td>#{group_member.saturday_rsvp_text}</td></tr>"
     end
     response += '</table>'
     response

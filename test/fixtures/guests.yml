@@ -8,8 +8,8 @@ one:
   contact_preference: 1
   mailing_address: MyString
   group_id: 1
-  rsvp_status: 1
-  rehearsal_status: 1
+  saturday_rsvp: 'no'
+  friday_rsvp: 'no'
 
 two:
   email: MyString
@@ -19,5 +19,5 @@ two:
   contact_preference: 1
   mailing_address: MyString
   group_id: 1
-  rsvp_status: 1
-  rehearsal_status: 1
+  saturday_rsvp: 'yes'
+  friday_rsvp: 'yes'

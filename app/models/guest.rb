@@ -1,17 +1,16 @@
 class Guest < ActiveRecord::Base
-    RSVP_RESPONSE = {
-        'no_response' => 0,
-        'no' => 1,
-        'maybe' => 2,
-        'yes' => 3
-    }
 
-    RSVP_RESPONSE_TEXT = [
-        'Not Yet Responded',
-        'Not Attending',
-        'Maybe',
-        'Attending'
-    ]
+    RSVP_EMPTY = ''
+    RSVP_NO = 'no'
+    RSVP_MAYBE = 'maybe'
+    RSVP_YES = 'yes'
+
+    RSVP_RESPONSE_TEXT = {
+        RSVP_EMPTY => 'Not Yet Responded',
+        RSVP_NO => 'Not Attending',
+        RSVP_MAYBE => 'Maybe',
+        RSVP_YES => 'Attending'
+    }
 
     before_save { self.email = email.downcase }
     before_create :create_token
@@ -30,32 +29,22 @@ class Guest < ActiveRecord::Base
         end
     end
 
-    def update_rsvp(rehearsal_status, rsvp_status, dietary_notes, other_notes)
-        self.rsvp_status = RSVP_RESPONSE[rsvp_status]
-        self.rehearsal_status = RSVP_RESPONSE[rehearsal_status]
+    def update_rsvp(friday_rsvp, saturday_rsvp, dietary_notes, other_notes)
+        self.saturday_rsvp = saturday_rsvp
+        self.friday_rsvp = friday_rsvp
         self.dietary_notes = dietary_notes
         self.other_notes = other_notes
         self.save!
     end
 
-    def rehearsal_status_key
-        return '' if self.rehearsal_status.nil?
-        RSVP_RESPONSE.keys[self.rehearsal_status]
+    def friday_rsvp_text
+        return 'Not Yet Responded' if self.friday_rsvp.nil?
+        RSVP_RESPONSE_TEXT[self.friday_rsvp]
     end
 
-    def rsvp_status_key
-        return '' if self.rsvp_status.nil?
-        RSVP_RESPONSE.keys[self.rsvp_status]
-    end
-
-    def rehearsal_status_text
-        return 'Not Yet Responded' if self.rehearsal_status.nil?
-        RSVP_RESPONSE_TEXT[self.rehearsal_status]
-    end
-
-    def rsvp_status_text
-        return 'Not Yet Responded' if self.rsvp_status.nil?
-        RSVP_RESPONSE_TEXT[self.rsvp_status]
+    def saturday_rsvp_text
+        return 'Not Yet Responded' if self.saturday_rsvp.nil?
+        RSVP_RESPONSE_TEXT[self.saturday_rsvp]
     end
 
     private
