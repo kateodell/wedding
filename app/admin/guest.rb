@@ -31,4 +31,6 @@ ActiveAdmin.register Guest do
           params.permit guest: [:email, :first_name, :last_name, :group_leader, :phone, :mailing_address, :city, :state, :zip]
         end
       end
+
+      active_admin_importable
 end
