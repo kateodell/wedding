@@ -13,6 +13,7 @@ gem 'bootstrap-sass'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'mandrill-api'
+gem 'font-awesome-sass'
 
 group :test do
     gem 'sqlite3'

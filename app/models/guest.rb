@@ -12,11 +12,11 @@ class Guest < ActiveRecord::Base
         RSVP_YES => 'Attending'
     }
 
-    before_save { self.email = email.downcase }
+    before_save { self.email = email.downcase if email }
     before_create :create_token
 
-    VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-    validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
+    VALID_EMAIL_REGEX = /(\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z)?/i
+    validates :email, format: { with: VALID_EMAIL_REGEX }
 
     has_many :guests, :class_name => 'Guest', :foreign_key => 'group_leader'
 
