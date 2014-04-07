@@ -8,6 +8,7 @@ ActiveAdmin.register Guest do
         column :saturday_rsvp
         column :group_leader
         column :token
+        column :last_invite_emailed
         default_actions
       end
 

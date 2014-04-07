@@ -16,6 +16,6 @@ class GuestsController < ApplicationController
 
     private
     def guest_params
-        params.require(:email).permit(:name, :saturay_rsvp, :friday_rsvp)
+        params.require(:email).permit(:name, :saturay_rsvp, :friday_rsvp, :last_invite_emailed)
     end
 end

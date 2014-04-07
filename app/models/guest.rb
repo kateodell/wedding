@@ -47,6 +47,15 @@ class Guest < ActiveRecord::Base
         RSVP_RESPONSE_TEXT[self.saturday_rsvp]
     end
 
+    def send_invitation_email
+      InvitationMailer.send_invitation_email(self)
+    end
+
+    def update_last_invite_emailed
+      self.last_invite_emailed = DateTime.current
+      self.save!
+    end
+
     private
 
     def create_token

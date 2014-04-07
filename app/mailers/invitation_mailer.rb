@@ -7,7 +7,8 @@ class InvitationMailer
     merge_vars = [{"rcpt"=> guest.email,
                 "vars"=>[{"name"=>"token", "content"=> guest.token }]}]
     send_template_email(template_name, subject, guest, merge_vars, [])
-  end   
+    guest.update_last_invite_emailed
+  end
 
   def self.send_confirmation_email(guest)
     template_name = "rsvpconfirmation"
@@ -19,7 +20,7 @@ class InvitationMailer
                 "vars"=>[ {"name"=>"token", "content"=> guest.token },
                           {"name"=>"name", "content"=> guest.first_name }]}]
     send_template_email(template_name, subject, guest, merge_vars, template_content)
-  end 
+  end
 
   private
 
