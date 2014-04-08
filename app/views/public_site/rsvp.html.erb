@@ -1,17 +1,17 @@
 <div class="row">
     <div class="box col-sm-12 text-center">
-        <div class="box"> 
-            <h2><strong>RSVP</strong></h2>            
-            
+        <div class="box">
+            <h2><strong>RSVP</strong></h2>
+
             <div class="row pad-btm-30">
-                <div class="col-sm-2">
+                <div class="col-sm-2 hidden-xs">
                     <h4>Name</h4>
                 </div>
-                <div class="col-sm-5">
+                <div class="col-sm-5 hidden-xs">
                     <h4>Friday Night Dinner</h4>
                     Friday August 8, 2014
                 </div>
-                <div class="col-sm-5">
+                <div class="col-sm-5 hidden-xs">
                     <h4>Wedding &amp; Reception</h4>
                     Saturday, August 9, 2014
                 </div>
@@ -20,10 +20,14 @@
                 <input type="hidden" name="rsvping_guest" value="<%= @guest.id %>">
                 <% @rsvp_info.each do |guest| %>
                     <div class="row pad-btm-30">
-                        <div class="col-sm-2">
+                        <div class="col-sm-2 col-xs-12">
                             <p><%= guest.first_name %> <%= guest.last_name %></p>
                         </div>
-                        <div class="col-sm-5">
+                        <div class="col-xs-6 visible-xs">
+                            <h5>Friday Night Dinner</h5>
+                            Friday August 8, 2014
+                        </div>
+                        <div class="col-sm-5 col-xs-6">
                             <div id="friday_<%= guest.id %>" class="btn-group" data-toggle="buttons">
                               <label value="yes" class="btn btn-default btn-yes">
                                 <input type="radio">Attending</label>
@@ -34,7 +38,14 @@
                             </div>
                             <input type="hidden" name= "friday_<%= guest.id %>" id="friday_rsvp_<%= guest.id %>" value="<%= guest.friday_rsvp %>"/>
                         </div>
-                        <div class="col-sm-5">
+                        <div class="col-xs-12 visible-xs">
+                          &nbsp;
+                        </div>
+                        <div class="col-xs-6 visible-xs">
+                            <h5>Wedding &amp; Reception</h5>
+                            Saturday, August 9, 2014
+                        </div>
+                        <div class="col-sm-5 col-xs-6">
                             <div id="saturday_<%= guest.id %>" class="btn-group" data-toggle="buttons">
                               <label value="yes" class="btn btn-default btn-yes">
                                 <input type="radio">Attending</label>
@@ -44,7 +55,7 @@
                                 <input type="radio">Not Attending</label>
                             </div>
                             <input type="hidden" name= "saturday_<%= guest.id %>" id="saturday_rsvp_<%= guest.id %>" value="<%= guest.saturday_rsvp %>"/>
-                        </div> 
+                        </div>
                     </div>
                     <script type="text/javascript">
                         //on page load:
