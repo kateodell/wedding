@@ -48,7 +48,7 @@ class Guest < ActiveRecord::Base
     end
 
     def send_invitation_email
-      InvitationMailer.send_invitation_email(self)
+      InvitationMailer.send_invitation_email(self) if self.email?
     end
 
     def update_last_invite_emailed
